@@ -10,15 +10,24 @@ const APP_ID = "a52b4d43";
 const APP_KEY = "e0e5c667605f5e91d8275c973531b80a";
 
 const RecipeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: 300px;
-  box-shadow: 0 3px 10px 0 #aaa;
+display: flex;
+flex-direction: column;
+padding: 10px;
+width: 300px;
+box-shadow: 0 3px 10px 0 #aaa;
+transition: transform 0.3s, box-shadow 0.3s; /* Add transition for box-shadow */
+
+&:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px 0 #333; /* Change box-shadow color on hover */
+}
 `;
 const CoverImage = styled.img`
-  object-fit: cover;
-  height: 200px;
+object-fit: cover;
+height: 300px;
+
+
+  
 `;
 const RecipeName = styled.span`
   font-size: 18px;
@@ -39,13 +48,13 @@ const SeeMoreText = styled.span`
   cursor: pointer;
 `;
 const IngredientsText = styled(SeeMoreText)`
-  color: green;
-  border: solid 1px green;
+  color: black;
+  border: solid 2px green;
   margin-bottom: 12px;
 `;
 const SeeNewTab = styled(SeeMoreText)`
   color: green;
-  border: solid 1px green;
+  border: solid 2px green;
 `;
 const RecipeComponent = (props) => {
   const [show, setShow] = useState("");
@@ -102,8 +111,8 @@ const AppName = styled.div`
   align-items: center;
 `;
 const Header = styled.div`
-  background-color: black;
-  color: white;
+  background-color: blue;
+  color: black;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -175,9 +184,11 @@ const AppComponent = () => {
     <Container>
       <Header>
         <AppName>
+        
           <RecipeImage src="/react-recipe-finder/hamburger.svg" />
-          Recipe Finder
+          Food Recipe 
         </AppName>
+        
         <SearchBox>
           <SearchIcon src="/react-recipe-finder/search-icon.svg" />
           <SearchInput
@@ -194,7 +205,9 @@ const AppComponent = () => {
           ))
         ) : (
           <Placeholder src="/react-recipe-finder/hamburger.svg" />
+          
         )}
+        
       </RecipeListContainer>
     </Container>
   );
